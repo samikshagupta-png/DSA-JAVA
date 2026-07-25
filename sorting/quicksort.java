@@ -25,9 +25,9 @@ public class quicksort {
 
     // Place pivot in correct position
     i++;
-    int temp = arr[i];
-    arr[i] = arr[ei];
-    arr[ei] = temp;
+    int temp = pivot;
+    arr[ei] = arr[i];
+    arr[i] = temp;
 
     return i;  // Return pivot index
 }
