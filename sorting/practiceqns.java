@@ -61,5 +61,5 @@ public class practiceqns {
             sortarray(arr, 0, arr.length - 1);
 
             System.out.println("Sorted:   " + Arrays.toString(arr));
-        } 
+    } 
 }
