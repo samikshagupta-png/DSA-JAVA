@@ -51,15 +51,39 @@ public class practiceqns {
             k++;
 
         }
+        
+
         // Driver code
         
     }
+    //Given an array nums of size n, returnthe majority element.
+        public static int Majorityelement(int[] arr){
+            int majority=arr.length/2 ;
+            for(int i =0;i<arr.length;i++){
+                int count =0;
+                for(int j =0;j<arr.length;j++){
+                    if(arr[i]==arr[j]){
+                        count=count+1;
+                    }
+                }
+                if(count>majority){
+                    return arr[i];
+                }
+                
+                
+            
+            }
+            return -1;
+        }
     public static void main(String[] args) {
-            String[] arr = {"banana", "apple", "grape", "cherry", "mango"};
-            System.out.println("Original: " + Arrays.toString(arr));
+            // String[] arr = {"banana", "apple", "grape", "cherry", "mango"};
+            // System.out.println("Original: " + Arrays.toString(arr));
 
-            sortarray(arr, 0, arr.length - 1);
+            // sortarray(arr, 0, arr.length - 1);
 
-            System.out.println("Sorted:   " + Arrays.toString(arr));
+            // System.out.println("Sorted:   " + Arrays.toString(arr));
+        int arr[]={2,2,1,1,1,2,2}; 
+        System.out.println(Majorityelement(arr));
+
     } 
 }
