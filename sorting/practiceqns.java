@@ -1,5 +1,5 @@
 package sorting;
-import java.util.Arrays;
+
 //ApplyMergesorttosortanarrayofStrings.(Assumethatallthecharactersinall the Strings are in lowercase)
 public class practiceqns {
     public static void sortarray(String[] arr,int si , int ei){
@@ -75,6 +75,19 @@ public class practiceqns {
             }
             return -1;
         }
+        //Given an array of integers. Find theInversion Countin the array.
+        public static int inversioncount(int[] arr){
+            int count =0;
+            for(int i =0;i<arr.length;i++){
+                for(int j=i+1;j<arr.length;j++){
+                    if(arr[i]>arr[j]){
+                        count=count+1;
+
+                    }
+                }
+            }
+            return count;
+        }
     public static void main(String[] args) {
             // String[] arr = {"banana", "apple", "grape", "cherry", "mango"};
             // System.out.println("Original: " + Arrays.toString(arr));
@@ -83,7 +96,7 @@ public class practiceqns {
 
             // System.out.println("Sorted:   " + Arrays.toString(arr));
         int arr[]={2,2,1,1,1,2,2}; 
-        System.out.println(Majorityelement(arr));
+        System.out.println("Inversion Count: " + inversioncount(arr));
 
     } 
 }
