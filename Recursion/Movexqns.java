@@ -1,5 +1,5 @@
 package Recursion;
-
+//move all x question code
 public class Movexqns {
     public static void moveALLX(String str , int idx, int count , String newString){
         // base class
