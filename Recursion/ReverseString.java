@@ -19,7 +19,4 @@ public class ReverseString {
     String word = "abcdjdkowe";
     reversestring(word, word.length()-1);
    }
-
-
-    
 }
