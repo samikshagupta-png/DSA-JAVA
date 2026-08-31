@@ -4,6 +4,9 @@ public class Movexqns {
     public static void moveALLX(String str , int idx, int count , String newString){
         // base class
         if(idx == str.length()){
+            for(int i =0; i<count;i++){
+                newString +='x';
+            }
             System.out.println(newString);
             return;
         }
