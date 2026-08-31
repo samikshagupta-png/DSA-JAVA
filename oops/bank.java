@@ -28,7 +28,7 @@ abstract class Account{
 
 
 class SavingsAccount extends Account {
-    private double minBalance = 1000; // must maintain minimum balance
+    private double minBalance = 1000; 
 
     public SavingsAccount(String username, int accountNumber, double balance) {
         super(username, accountNumber, balance);
@@ -64,11 +64,17 @@ class CurrentAccount extends Account {
 
 class user{
 
+
 }
 
 public class bank {
+    public static void main(String[] args) {
+        // SavingsAccount s1= new SavingsAccount("samiksha gupta", 123456789,2000);
+        // s1.credit(200);
+        // s1.debit(123);
+        // System.out.println("final balance: "+s1.getbalance());
     
-    
+    }
 
     
 }
