@@ -1,4 +1,5 @@
-package oops; 
+package oops;
+import java.util.*;
 
 abstract class Account{
     protected String username;
@@ -68,6 +69,20 @@ class user{
 }
 
 public class bank {
+    private List<Account> accounts = new ArrayList<>();
+    public void addAccount(Account acc){
+        accounts.add(acc);
+    }
+    public Account findaccounts(int accountNumber){
+        for (Account acc : accounts) {
+            if (acc.getaccountnumber() == accountNumber) return acc;
+        }
+        return null;
+
+    }
+
+
+
     public static void main(String[] args) {
         // SavingsAccount s1= new SavingsAccount("samiksha gupta", 123456789,2000);
         // s1.credit(200);
