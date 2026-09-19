@@ -113,6 +113,36 @@ public class printingLL {
         tail = prev;
         return val;
     }
+    // search iterative
+    public int itrsearch(int key){
+        Node temp = head;
+        int i =0;
+        while(temp !=null){
+            if(temp.data == key){
+                return i;
+            }
+            temp = temp.next;
+            i++;
+        }
+        return -1;
+    }
+    public int helper (Node head,int key){
+        if(head ==null){
+            return -1;
+        }
+        if(head.data == key){
+            return 0;
+        }
+        int idx = helper(head.next, key);
+        if(idx ==-1){
+            return -1;
+        }
+        return idx +1;
+
+    }
+    public int recsearch(int key){
+        return helper(head, key);
+    }
     public static void main(String[] args) {
         printingLL ll = new printingLL();
         ll.addFirst(1);
@@ -126,6 +156,7 @@ public class printingLL {
         ll.print();
         ll.removeLast();
         ll.print();
+        System.out.println(ll.itrsearch(3));
         System.out.println(ll.size);
         
     }
