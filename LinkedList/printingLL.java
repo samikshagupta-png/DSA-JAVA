@@ -5,6 +5,7 @@ package LinkedList;
 public class printingLL {
     public   Node head;
     public   Node tail;
+    public int size;
     public  static  class  Node {
         int data;
         Node next;
@@ -29,7 +30,7 @@ public class printingLL {
         newNode.next = head; // link 
         // step 3 -head  = newnode
         head = newNode;
-
+        size++;
 
 
     }
@@ -37,16 +38,37 @@ public class printingLL {
             Node newNode = new Node(data);
             if(head == null){
                 head = tail = newNode;
+                size++;
                 return ;
             }
             tail.next = newNode;
             tail = newNode;
+            size++;
 
+    }
+    public void add(int idx,int data){
+        if(idx ==0){
+            addFirst(data);
+            return ;
+        }
+        Node newNode = new Node(data);
+        
+        Node  temp = head;
+        int i =0;
+        while (i<idx-1) {
+            temp = temp.next;
+            i++;
+            
+        }
+        newNode.next = temp.next;
+        temp.next= newNode;
+        size ++ ;
     }
     public void print(){
         if(head == null){
             System.out.println("lL is empty");
 
+            return ;
         }
         Node temp = head;
         while(temp !=null){
@@ -62,6 +84,8 @@ public class printingLL {
         ll.addFirst(9);
         ll.AddLast(4);
         ll.AddLast(6);
+        ll.add(2,0);
+        System.out.println(ll.size);
         ll.print();
         
     }
