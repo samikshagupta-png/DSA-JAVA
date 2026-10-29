@@ -116,6 +116,42 @@ public class Binary {
 
 
         }
+        public static int diameter(Node root){
+            if(root == null){
+                return 0;
+            }
+            int leftdia = diameter(root.left);
+            int leftht = height(root.left);
+            int rightdia = diameter(root.right);
+            int rightht = height(root.right);
+            int selfdai = leftht+rightht+1;
+            return  Math.max(selfdai,Math.max(leftdia, rightdia));
+        }
+        public static  boolean isIdentical(Node node,Node subRoot){
+            if(node == null && subRoot == null){
+                return true;
+            }else if(node == null || subRoot ==null || node.data!= subRoot.data){
+                return false;
+            }
+            if(!isIdentical(node.left, subRoot.left)){
+                return false;
+            }
+            if(!isIdentical(node.right, subRoot.right)){
+                return  false;
+            }
+            return  true;
+        } 
+        public static boolean issubtree(Node root,Node subRoot){
+            if(root== null){
+                return false;
+            }
+            if(root.data == subRoot.data){
+                if(isIdentical(root, subRoot)){
+                    return true;
+                }
+            }
+            return  (issubtree(root.left, subRoot.left)||issubtree(root.right, subRoot.right));
+        }
     }
         public static void main(String[] args) {
         int nodes[] ={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
@@ -127,6 +163,8 @@ public class Binary {
         // binarytree.levelorder(root);
         // int re=binarytree.height(root);
         // System.out.println(re);
+        //  int x = binarytree.diameter(root);
+        // System.out.println(x);
         
     }
     
