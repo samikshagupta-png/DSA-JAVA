@@ -22,14 +22,45 @@ public class question {
 
 
     } 
-    public static void main(String[] args) {
+        public static String checkpath(String s) {
+
+            Stack<String> st = new Stack<>();
+
+            String arr[] = s.split("/");
+
+            for (int i = 0; i < arr.length; i++) {
+
+                if (arr[i].equals("") || arr[i].equals(".")) {
+                    continue;
+                }
+
+                else if (arr[i].equals("..")) {
+                    if (!st.isEmpty()) {
+                        st.pop();
+                    }
+                }
+
+                else {
+                    st.push(arr[i]);
+                }
+            }
+
+            String ans = "";
+
+            for (String str : st) {
+                ans += "/" + str;
+            }
+
+            return ans.isEmpty() ? "/" : ans;
+        }
+        public static void main(String[] args) {
         LinkedList<Character> ll = new LinkedList<>();
         ll.add('a');
         ll.add('b');
         ll.add('c');
         ll.add('b');
         ll.add('a');
-        System.out.println(palindrome(ll));
+        // System.out.println(palindrome(ll));
 
     }
     
