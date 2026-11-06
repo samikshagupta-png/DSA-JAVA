@@ -1,4 +1,4 @@
-package Queue;
+package queue;
 class Node{
    int data;
    Node next;
@@ -50,14 +50,14 @@ public class queueUsingLL {
 
     }
     public static void main(String[] args) {
-        queue q = new queue();
-        q.add(1);
-        q.add(2);
-        q.add(3);
-        System.out.println(q.remove());
-        q.add(4);
-        System.out.println(q.remove());
-        q.add(5);
+        // queue q = new queue();
+        queue.add(1);
+        queue.add(2);
+        queue.add(3);
+        System.out.println(queue.remove());
+        queue.add(4);
+        System.out.println(queue.remove());
+        queue.add(5);
         
         // while(!q.isEmpty()){
         //     System.out.println(q.peek());

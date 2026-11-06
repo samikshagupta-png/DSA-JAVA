@@ -1,6 +1,4 @@
-package Queue;
-
-import java.util.Queue;
+package queue;
 import java.util.Stack;
 
 public class queueusingTwostack {
@@ -39,14 +37,14 @@ public class queueusingTwostack {
         }
     }
     public static void main(String[] args) {
-        twoqueue q = new twoqueue();
-        q.add(1);
-        q.add(2);
-        q.add(3);
+        // twoqueue q = new twoqueue();
+        twoqueue.add(1);
+        twoqueue.add(2);
+        twoqueue.add(3);
 
-        while(!q.isEmpty()){
-            System.out.println(q.peek());
-            q.remove();
+        while(!twoqueue.isEmpty()){
+            System.out.println(twoqueue.peek());
+            twoqueue.remove();
         }
         
     }

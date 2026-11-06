@@ -32,7 +32,7 @@ public class StackB {
     static class Node{
         int data;
         Node next;
-        Node(int data){
+        Node(int data, Node next){
             this.data = data;
             this.next= next;
         }
@@ -44,7 +44,7 @@ public class StackB {
         }
         //push
         public static void push(int data){
-            Node newNode = new Node(data);
+            Node newNode = new Node(data,null);
             if(isEmpty()){
                 head=newNode;
             }
@@ -67,14 +67,14 @@ public class StackB {
         }
     }
     public static void main(String[] args) {
-        stack s= new stack();
+        // stack s= new stack();
         // Stack<Integer> s = new stack<>();
-        s.push(1);
-        s.push(2);
-        s.push(3);
-        while(!s.isEmpty()){
-            System.out.println(s.peek());
-            s.pop();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        while(!stack.isEmpty()){
+            System.out.println(stack.peek());
+            stack.pop();
         }
     }
     

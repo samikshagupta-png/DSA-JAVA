@@ -70,7 +70,7 @@ public class DoubleLL {
         dll.addFirst(8);
         dll.addFirst(4);
         dll.print();
-        System.out.println(dll.size);
+        // System.out.println(dll.size);
         dll.reverse();
         dll.print();
 
