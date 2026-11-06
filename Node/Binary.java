@@ -200,8 +200,19 @@ public class Binary {
         System.out.println();
 
     }
+    public static  void Klevel(Node root, int level , int k){
+        if(root == null){
+            return ;
+        }
+        if(level == k){
+            System.out.println(root.data+" ");
+            return ;
+        }
+        Klevel(root.left,level+1,k);
+        Klevel(root.right,level+1,k);
+    }
         public static void main(String[] args) {
-        int nodes[] ={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
+        // int nodes[] ={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         // Node root = binarytree.buildTree(nodes);
         // System.out.print(root.data);
         // binarytree.preorder(root);
@@ -212,7 +223,16 @@ public class Binary {
         // System.out.println(re);
         //  int x = binarytree.diameter(root);
         // System.out.println(x);
-        
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.left = new Node(6);
+        root.right.right = new Node(7);
+        int k =2;
+        Klevel(root,1,k);
     }
+    
     
 }
