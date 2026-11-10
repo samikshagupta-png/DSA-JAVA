@@ -1,5 +1,6 @@
 package Node;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -211,6 +212,42 @@ public class Binary {
         Klevel(root.left,level+1,k);
         Klevel(root.right,level+1,k);
     }
+    public static boolean getPath(Node root,int n , ArrayList<Node> path){
+        if(root == null){
+            return false;
+        }
+        path.add(root);
+        if(root.data == n){
+            return  true;
+        }
+        boolean foundleft = getPath(root.left, n, path);
+        boolean foundright  = getPath(root.right, n, path);
+        if(foundleft || foundright){
+            return true;
+        }
+        path.remove(path.size()-1);
+        return  false;
+
+    }
+    public static  Node lca(Node root, int n1,int n2){
+        ArrayList<Node> path1 = new ArrayList<>();
+        ArrayList<Node> path2 = new ArrayList<>();
+        // Find path from root to n1
+        getPath(root, n1, path1);
+
+        // Find path from root to n2
+        getPath(root, n2, path2);
+
+        //last common ancestors 
+        int i =0;
+        for(i =0;i<path1.size() && i<path2.size();i++){
+            if(path1.get(i) != path2.get(i)){
+                break;
+            }
+        }
+        Node lca = path1.get(i-1);
+        return lca;
+    }
         public static void main(String[] args) {
         // int nodes[] ={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         // Node root = binarytree.buildTree(nodes);
@@ -230,8 +267,9 @@ public class Binary {
         root.left.right = new Node(5);
         root.right.left = new Node(6);
         root.right.right = new Node(7);
-        int k =2;
-        Klevel(root,1,k);
+        // int k =2;
+        // Klevel(root,1,k);
+        System.out.println(lca(root,3, 4).data);;
     }
     
     
