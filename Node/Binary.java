@@ -291,6 +291,27 @@ public class Binary {
         return max+1;
 
     }
+    public static  int  sumofTree(Node root){
+        if(root == null){
+            return 0 ;
+        }
+        int leftchild = sumofTree(root.left);
+        int rightchild =sumofTree(root.right);
+        int data = root.data;
+        int newLeft = root.left == null ? 0 : root.left.data;
+         int newright = root.right == null ? 0 : root.right.data;
+        root.data = newLeft+newright+leftchild+rightchild;
+        return data;
+        
+    }
+    public static  void preorder(Node root){
+        if(root == null){
+            return ;
+        }
+        System.out.print(root.data+" ");
+        preorder(root.left);
+        preorder(root.right);
+    }
         public static void main(String[] args) {
         // int nodes[] ={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         // Node root = binarytree.buildTree(nodes);
@@ -313,8 +334,10 @@ public class Binary {
         // int k =2;
         // Klevel(root,1,k);
         // System.out.println(mindist(root,4, 6));
-        int n =4,k=2;
-        Ancestors(root, n, k);
+        // int n =4,k=2;
+        // Ancestors(root, n, k);
+        sumofTree(root);
+        preorder(root);
     }
     
     
