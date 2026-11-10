@@ -248,6 +248,30 @@ public class Binary {
         Node lca = path1.get(i-1);
         return lca;
     }
+    public static int lcadist(Node root,int n){
+        if(root == null){
+            return -1;
+        }
+        if(root.data == n){
+            return 0;
+        }
+        int leftdist = lcadist(root.left, n);
+        int rightdist = lcadist(root.right, n);
+        if(leftdist == -1 && rightdist ==-1){
+            return -1;
+        }else if(leftdist ==-1){
+            return rightdist+1;
+        }else{
+            return leftdist+1;
+        }
+
+    }
+    public static int mindist(Node root , int n1,int n2){
+        Node lca = lca(root, n1, n2);
+        int dist1 = lcadist(lca,n1);
+        int dist2 = lcadist(lca,n2);
+        return  dist1+dist2;
+    }
         public static void main(String[] args) {
         // int nodes[] ={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         // Node root = binarytree.buildTree(nodes);
@@ -269,7 +293,7 @@ public class Binary {
         root.right.right = new Node(7);
         // int k =2;
         // Klevel(root,1,k);
-        System.out.println(lca(root,3, 4).data);;
+        System.out.println(mindist(root,4, 6));
     }
     
     
