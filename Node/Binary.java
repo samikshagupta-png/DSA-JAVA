@@ -272,6 +272,25 @@ public class Binary {
         int dist2 = lcadist(lca,n2);
         return  dist1+dist2;
     }
+    public static  int Ancestors(Node root, int n,int k){
+        if(root == null){
+            return -1;
+        }
+        if(root.data == n){
+            return 0;
+        }
+        int leftDist = Ancestors(root.left, n, k);
+        int rightdist = Ancestors(root.right, n, k);
+        if(leftDist == -1 && rightdist == -1){
+            return -1;
+        }
+        int max = Math.max(leftDist, rightdist);
+        if(max+1 == k){
+            System.out.println(root.data);
+        }
+        return max+1;
+
+    }
         public static void main(String[] args) {
         // int nodes[] ={1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
         // Node root = binarytree.buildTree(nodes);
@@ -293,7 +312,9 @@ public class Binary {
         root.right.right = new Node(7);
         // int k =2;
         // Klevel(root,1,k);
-        System.out.println(mindist(root,4, 6));
+        // System.out.println(mindist(root,4, 6));
+        int n =4,k=2;
+        Ancestors(root, n, k);
     }
     
     
