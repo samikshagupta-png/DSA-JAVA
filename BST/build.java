@@ -101,6 +101,26 @@ public class build {
         }
 
     }
+    public static Node Mirror(Node root){
+        if(root == null){
+            return  null;
+        }
+        Node leftMirror = Mirror(root.left);
+        Node rightMirror = Mirror(root.right);
+
+        root.left= rightMirror;
+        root.right = leftMirror;
+        return root;
+
+    }
+    public static  void preorder(Node root){
+        if(root == null){
+            return;
+        }
+        System.out.println(root.data+" ");
+        preorder(root.left);
+        preorder(root.right);
+    }
     public static void main(String[] args) {
         int values[] = {8,5,3,1,4,6,10,11,14};
         Node root = null;
