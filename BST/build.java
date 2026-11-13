@@ -1,5 +1,7 @@
 package BST;
 
+import java.util.ArrayList;
+
 public class build {
     static  class Node {
         int data;
@@ -121,16 +123,42 @@ public class build {
         preorder(root.left);
         preorder(root.right);
     }
-    public static Node CreateBST(int arr[],int st,int ei){
+    // public static Node CreateBST(int arr[],int st,int ei){
+    //     if(st>ei){
+    //         return null;
+    //     }
+    //     int mid = (st+ei)/2;
+    //     Node root = new Node(arr[mid]);
+    //     root.left=CreateBST(arr, st, mid-1);
+    //     root.right=CreateBST(arr, mid+1, ei);
+    //     return root;
+
+    // }
+    public static Node CreateBST(ArrayList<Integer> inorder,int st,int ei){
         if(st>ei){
             return null;
         }
         int mid = (st+ei)/2;
-        Node root = new Node(arr[mid]);
-        root.left=CreateBST(arr, st, mid-1);
-        root.right=CreateBST(arr, mid+1, ei);
+        Node root = new Node(inorder.get(mid));
+        root.left=CreateBST(inorder, st, mid-1);
+        root.right=CreateBST(inorder, mid+1, ei);
         return root;
 
+    }
+    public static  void getInorder(Node root,ArrayList<Integer> inorder){
+        if(root == null){
+            return ;
+        }
+        getInorder(root.left, inorder);
+        inorder.add(root.data);
+        getInorder(root.right, inorder);
+
+    }
+    public static  Node balanceBST(Node root){
+        ArrayList<Integer> inorder = new ArrayList<>();
+        getInorder(root, inorder);
+        root = CreateBST(inorder, 0, inorder.size()-1);
+        return root;
     }
     public static void main(String[] args) {
         // int values[] = {8,5,3,1,4,6,10,11,14};
@@ -146,11 +174,13 @@ public class build {
         // }
         // // root = delete(root, 10);
         // System.out.println();
-        // // inorder(root);
+        // inorder(root);
         // printInrange(root, 5, 12);
-        int arr[]= {3,5,6,8,10,11,12};
-        Node root = CreateBST(arr, 0, arr.length-1);
-        preorder(root);
+        // int arr[]= {3,5,6,8,10,11,12};
+        // root = balanceBST(root);
+        // preorder(root);
+
+
     }
     
 }
