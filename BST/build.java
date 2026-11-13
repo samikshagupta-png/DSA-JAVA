@@ -117,26 +117,40 @@ public class build {
         if(root == null){
             return;
         }
-        System.out.println(root.data+" ");
+        System.out.print(root.data+" ");
         preorder(root.left);
         preorder(root.right);
     }
-    public static void main(String[] args) {
-        int values[] = {8,5,3,1,4,6,10,11,14};
-        Node root = null;
-        for(int i =0;i<values.length;i++){
-            root = insert(root,values[i]);
+    public static Node CreateBST(int arr[],int st,int ei){
+        if(st>ei){
+            return null;
+        }
+        int mid = (st+ei)/2;
+        Node root = new Node(arr[mid]);
+        root.left=CreateBST(arr, st, mid-1);
+        root.right=CreateBST(arr, mid+1, ei);
+        return root;
 
-        }
-        inorder(root);
-        System.out.println();
-        if(search(root, 1)){
-            System.out.println("found");
-        }
-        // root = delete(root, 10);
-        System.out.println();
+    }
+    public static void main(String[] args) {
+        // int values[] = {8,5,3,1,4,6,10,11,14};
+        // Node root = null;
+        // for(int i =0;i<values.length;i++){
+        //     root = insert(root,values[i]);
+
+        // }
         // inorder(root);
-        printInrange(root, 5, 12);
+        // System.out.println();
+        // if(search(root, 1)){
+        //     System.out.println("found");
+        // }
+        // // root = delete(root, 10);
+        // System.out.println();
+        // // inorder(root);
+        // printInrange(root, 5, 12);
+        int arr[]= {3,5,6,8,10,11,12};
+        Node root = CreateBST(arr, 0, arr.length-1);
+        preorder(root);
     }
     
 }
